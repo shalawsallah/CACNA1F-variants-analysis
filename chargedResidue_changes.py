@@ -1,9 +1,5 @@
 #! /usr/bin/env python3
-# import numpy as np
 import pandas as pd
-# import matplotlib.pyplot as plt
-# import seaborn as sns
-# import math
 import random
 '''14/04/18 change in charge amongst core or surface residues'''
 
@@ -30,10 +26,6 @@ positive_residues = 3
 three_letters_to_one_letter = {'Phe': 'F', 'Tyr': 'Y', 'Leu': 'L', 'His': 'H', 'Gln': 'Q', 'Ile': 'I', 'Asn': 'N',
                                'Met': 'M', 'Val': 'V', 'Asp': 'D', 'Glu': 'E', 'Ser': 'S', 'Pro': 'P', 'Arg': 'R',
                                'Thr': 'T', 'Lys': 'K', 'Gly': 'G', 'Ala': 'A', 'Cys': 'C', 'Trp': 'W'}
-# res_num_dic = {'Y': 1, 'I': 2, 'N': 3, 'T': 4, 'L': 5, 'Q': 6, 'C': 7, 'F': 8, 'W': 9, 'P':10, 'S': 11, 'A': 12, 'V': 13, 'G': 14, 'M': 15, 'D': 16, 'E': 17, 'K': 18, 'R': 19, 'H': 20}
-
-# hgmd_resn_naccess_scores = [x for x in hgmd_solvent_access if (math.isnan(x) == False)]
-# gnomad_solvent_access_scores = [x for x in gnomad_solvent_access if (math.isnan(x) == False)]
 
 '''extracting mutants & mutated for variants with a low solvent accessibility score'''
 mutant_residues_list = []
@@ -129,80 +121,3 @@ print('observed positive-loss: ', observed_positive_loss_fraction)
 expected_negative_residue_loss_fraction = observed_negative_loss_fraction * (neutral_residues + positive_residues) / total_residues
 print ('Expected negative-loss: ', expected_negative_residue_loss_fraction)
 print('observed negative-loss: ', observed_negative_loss_fraction)
-# expected_charge_flip_fraction = observed_charge_flip_fraction * (neutral_residues + positive_residues) / total_residues
-# print ('Expected charge_flip: ', expected_charge_flip_fraction)
-# print('observed charge_flip: ', observed_charge_flip_fraction) #uncertain if this is the right arithmatic for a flip in charge
-'''Randomly generating residues & comparing it to observed mutant residues
- -counter_higher: the number of times that the generated fraction of gained charge mutations is higher than observed_fraction
- -counter_lower: the number of times that the generated fraction of gained charge mutations is less than or equal to observed_fraction'''
-# counter_positive_generated_higher_than_observed_gain = 0
-# counter_positive_generated_lower_than_observed_gain = 0
-# counter_negative_generated_higher_than_observed_gain = 0
-# counter_negative_generated_lower_than_observed_gain = 0
-# counter_positive_generated_higher_than_observed_loss = 0
-# counter_positive_generated_lower_than_observed_loss = 0
-# counter_negative_generated_higher_than_observed_loss = 0
-# counter_negative_generated_lower_than_observed_loss = 0
-# n_iterations = 10000
-#
-# for j in range(n_iterations): # Repetitions allowed
-#     list_vals = []
-#     for m in range(len(mutated_residues_list)):     # Generate random numbers/residues
-#         x = random.randint(1, 20)
-#         list_vals.append(x)
-#     neutral_counter = 0
-#     positive_counter = 0
-#     negative_counter = 0
-#
-#     for val in list_vals:
-#         if val == 1 or val ==2:
-#             negative_counter += 1
-#         elif val ==3 or val ==4 or val ==5:
-#             positive_counter += 1
-#         else:
-#             neutral_counter += 1
-#
-#     generated_positive_fraction = float(positive_counter) / float(positive_counter + negative_counter + neutral_counter)
-#     generated_negative_fraction = float(negative_counter) / float(positive_counter + negative_counter + neutral_counter)
-#
-#     if generated_positive_fraction >= observed_positive_gain_fraction:
-#         counter_positive_generated_higher_than_observed_gain += 1
-#     elif generated_positive_fraction < observed_positive_gain_fraction:
-#         counter_positive_generated_lower_than_observed_gain += 1
-#     else:
-#         print("problem1")
-#
-#     if generated_positive_fraction >= observed_positive_loss_fraction:
-#         counter_positive_generated_higher_than_observed_loss += 1
-#     elif generated_positive_fraction < observed_positive_loss_fraction:
-#         counter_positive_generated_lower_than_observed_loss += 1
-#     else:
-#         print("problem1")
-#
-#     if generated_negative_fraction >= observed_negative_gain_fraction:
-#         counter_negative_generated_higher_than_observed_gain += 1
-#     elif generated_negative_fraction < observed_negative_gain_fraction:
-#         counter_negative_generated_lower_than_observed_gain += 1
-#     else:
-#         print("problem2")
-#
-#     if generated_negative_fraction >= observed_negative_loss_fraction:
-#         counter_negative_generated_higher_than_observed_loss += 1
-#     elif generated_negative_fraction < observed_negative_loss_fraction:
-#         counter_negative_generated_lower_than_observed_loss += 1
-#     else:
-#         print("problem2")
-#
-# p_value_positive_gain = float(counter_positive_generated_higher_than_observed_gain) / float(
-#     counter_positive_generated_lower_than_observed_gain + counter_positive_generated_higher_than_observed_gain)
-# p_value_negative_gain = float(counter_negative_generated_higher_than_observed_gain) / float(
-#     counter_negative_generated_lower_than_observed_gain + counter_negative_generated_higher_than_observed_gain)
-# print("Positive gain p-value:", p_value_positive_gain)
-# print("Negative gain p-value:", p_value_negative_gain)
-#
-# p_value_positive_loss = float(counter_positive_generated_higher_than_observed_loss) / float(
-#     counter_positive_generated_lower_than_observed_loss + counter_positive_generated_higher_than_observed_loss)
-# p_value_negative_loss = float(counter_negative_generated_higher_than_observed_loss) / float(
-#     counter_negative_generated_lower_than_observed_loss + counter_negative_generated_higher_than_observed_loss)
-# print("Positive loss p-value:", p_value_positive_loss)
-# print("Negative loss p-value:", p_value_negative_loss)
