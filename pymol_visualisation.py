@@ -3,15 +3,14 @@ import pandas as pd
 import re
 import xlrd
 '''PYMOL SCRIPT 1. (& 2) '''
-'''extracting the residue numbers from the variants to use in pymol
+'''extracting the residue numbers from the variants to visualise in pymol
 
-CHANGE:
+CHANGE inputs:
 -file
 -pathogenic_or_benign class'''
 
 file = pd.read_excel('/Users/mdefsss2/cacna1f/cacna1f_analysis.xlsx', sheet_name=0)
 pathogenic_or_benign = 'pathogenic'
-# pd.options.display.max_rows=1000 # to display, and later use as input, all of the rows, and not just a subset that pandas automatically generates
 variants = file['variants']
 pathogenicity = file['class']
 pathogenicOrBenign_vars = []
