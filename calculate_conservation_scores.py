@@ -8,29 +8,22 @@ from PythonForBiology.Alignments import BLOSUM62
 import numpy as np
 '''21/04/18
 creating a conservation score for residues in an alignment 
-source used for the code: "cambridge core python programming for biology-chapters 12-14 : pairwise - multiple alignment"
+source used for the codes/functions/methods: "cambridge core python programming for biology-chapters 12-14 : pairwise - multiple alignment"
 
-the orthologues, returned by ENSEMBL for each gene, were used to calculate the conservation scores.
-The orthologues from ALL SPECIES is downloaded (24/04/18) as fasta & unaligned with the query gene sequence added to the begining of the list. They were later aligned in SEAVIEW using clustal
-However, since the code was not reading the clustal files and the alignment did not appear normal. THEREFORE, muscle was used (14/06) and conservation scores recorded in beta_gamma_hgmd_training_set.xlsx 
+the orthologues, returned by uniprot were used to calculate the conservation scores.
+muscle was used for alignment
 
-Ultimately, the orthologs provided by alamut (Deforche A., Blavier A. (2010). Systematic Building of Multiple Protein Alignments for Variant Interpretation Human Genome Meeting poster) was used for conservation. these were extracted and used here to measure conservation scores'''
-
-'''CHANGE THE name of the gene & the dataset for different runs '''
-
-# this_gene = 'single_gene_analysis'
-# dataset = 'hgmd'
 alignment_0 = AlignIO.read(open('/Users/mdefsss2/RDH5_variants/alamut_orthologs.aln'), "clustal") # to read the alignment
 data = pd.read_excel('/Users/mdefsss2/RDH5_variants/rdh5_analysis_training_set.xlsx', index_col = [0], sheetname=1)
 # written_file = '/Users/mdefsss2/RDH5_variants/rdh5_analysis_training_set.xlsx'
 # genes = file_sheet1.columns.get_loc('genes')
-data['conservation_alamut']= np.zeros(len(data))
-index_conservation = data.columns.get_loc("conservation_alamut")
-variants = data['variants'] # the column containing variants
+data['conservation']= np.zeros(len(data))
+index_conservation = data.columns.get_loc("conservation")
+variants = data['variants']
 
 residue_numbers = data.columns.get_loc('res_number')
 
-# alignment_0 = AlignIO.read(open("/Users/mdefsss2/crystallins/cryba2_alamut_orth.fa"), "fasta") # to read one alignment
+# alignment_0 = AlignIO.read(open("/Users/mdefsss2/cacna1f/cacna1f_orthologues.fa"), "fasta") # to read one alignment
 
 print("Alignment length %i" % alignment_0.get_alignment_length()) # alignment length
 # print(alignment)
