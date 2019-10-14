@@ -9,7 +9,6 @@ import random
 '''30/10/18 looking to find variants with change in charge, CHANGE 1) DATA'''
 
 data = pd.read_excel('/Users/mdefsss2/CACNA1F/variants data/cacna1f_pathogenicMissense_vars.xlsx') # parameter 'index=False' skip automatic indices
-# data = pd.read_excel('/Users/mdefsss2/CACNA1F/variants data/cacna1f_nonPathogenicMissense_vars.xlsx')
 variants_numbers = len(data)
 print('length of the data: ', variants_numbers)
 variants = data['Variants']
