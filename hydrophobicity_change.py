@@ -6,9 +6,7 @@ import re
 import matplotlib as plt
 import random
 
-'''30/10/18 looking to find variants resulting in hydrophobicity changes.
-CHANGE the file only, for new data'''
-
+'''30/10/18 looking to find variants resulting in hydrophobicity changes'''
 data = pd.read_excel('/Users/mdefsss2/CACNA1F/variants data/cacna1f_pathogenicMissense_vars.xlsx') # parameter 'index=False' skip automatic indices
 variants_numbers = len(data)
 print('length of the data: ', variants_numbers)
