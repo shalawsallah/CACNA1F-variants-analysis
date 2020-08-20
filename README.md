@@ -1,3 +1,5 @@
-# CACNA1F-variants-analysis
+# missense-variants-analysis (sequence and structural properties)
 
-these codes were used in the analysis of the CACNA1F variants.
+These scripts were used in the analysis/classification of missense variants in X-linked genes, starting with CACNA1F gene.
+The variant properties from a functionaly benign dataset and pathogenic dataset were identifed and used in the classification/prediction of variants.
+Each script was used to extract a piece of information 
